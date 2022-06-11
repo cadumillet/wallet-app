@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Table from "./common/table";
+import Table from "../atoms/table";
 
 class WalletTable extends Component {
   columns = [

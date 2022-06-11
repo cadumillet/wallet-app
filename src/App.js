@@ -2,8 +2,8 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/navbar";
-import LoginForm from "./components/loginForm";
-import Wallet from "./components/wallet";
+import LoginForm from "./screens/loginForm";
+import Wallet from "./screens/wallet";
 
 function App() {
   return (

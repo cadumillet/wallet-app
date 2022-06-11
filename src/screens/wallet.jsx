@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import WalletTable from "./walletTable";
-import Pagination from "./common/pagination";
+import WalletTable from "../components/walletTable";
+import Pagination from "../atoms/pagination";
 import { getTransactions } from "../services/transactionService";
 
 class Wallet extends Component {
