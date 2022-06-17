@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Table from "../atoms/table";
 
 class WalletTable extends Component {
@@ -11,9 +12,11 @@ class WalletTable extends Component {
     {
       key: "edit",
       content: (item) => (
-        <button className="btn btn-light" onClick={() => this.editItem(item)}>
-          Edit
-        </button>
+        <Link to={`/transactions/${item._id}`}>
+          <button className="btn btn-light" onClick={() => this.editItem(item)}>
+            Edit
+          </button>
+        </Link>
       ),
     },
     {

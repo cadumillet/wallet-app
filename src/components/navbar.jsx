@@ -18,6 +18,9 @@ class Navbar extends Component {
               <Link className="nav-item nav-link" to="/signup">
                 Signup
               </Link>
+              <Link className="nav-item nav-link" to="/transaction">
+                New Transaction
+              </Link>
             </ul>
           </div>
         </div>

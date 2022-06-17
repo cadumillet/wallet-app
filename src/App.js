@@ -4,6 +4,7 @@ import "./App.css";
 import Navbar from "./components/navbar";
 import LoginForm from "./screens/loginForm";
 import Wallet from "./screens/wallet";
+import TransacionForm from "./screens/transactionForm";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <div style={{ paddingTop: 40 }}>
         <Routes>
           <Route path="/login" element={<LoginForm />} />
+          <Route path="/transaction/:id" element={<TransacionForm />} />
           <Route path="/" element={<Wallet />} />
         </Routes>
       </div>

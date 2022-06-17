@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import _ from "lodash";
 import WalletTable from "../components/walletTable";
 import Pagination from "../atoms/pagination";
-import ListCount from "../atoms/listCount";
+import ListCount from "../components/listCount";
 import { getTransactions } from "../services/transactionService";
 import { paginate } from "../utils/paginate";
 
@@ -47,7 +47,7 @@ class Wallet extends Component {
     } = this.state;
 
     const filtered =
-      selectedUser && selectedUser != "All"
+      selectedUser && selectedUser !== "All"
         ? allTransactions.filter((t) => t.user === selectedUser)
         : allTransactions;
 
@@ -58,12 +58,12 @@ class Wallet extends Component {
   };
 
   render() {
-    const { transactions, sortColumn, selectedUser } = this.state;
+    const { sortColumn, selectedUser } = this.state;
     const { data, count } = this.getPageData();
 
     return (
       <div className="container">
-        <h1>Wallet</h1>
+        <h1 className="mb-4">Wallet</h1>
         <div className="row">
           <div className="col-3">
             <ListCount
