@@ -7,6 +7,17 @@ class Table extends Component {
     return _.get(item, column.path);
   };
 
+  raiseSort = (column) => {
+    const sortColumn = { ...this.props.sortColumn };
+    if (sortColumn.path === column) {
+      sortColumn.order = sortColumn.order === "asc" ? "desc" : "asc";
+    } else {
+      sortColumn.path = column;
+      sortColumn.order = "asc";
+    }
+    this.props.onSort(sortColumn);
+  };
+
   render() {
     const { thead, tbody } = this.props;
 
@@ -15,7 +26,13 @@ class Table extends Component {
         <thead>
           <tr>
             {thead.map((c) => (
-              <th key={c.path || c.key}>{c.label}</th>
+              <th
+                className="clickable"
+                key={c.path || c.key}
+                onClick={() => this.raiseSort(c.path)}
+              >
+                {c.label}
+              </th>
             ))}
           </tr>
         </thead>

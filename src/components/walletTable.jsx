@@ -6,7 +6,7 @@ class WalletTable extends Component {
     { path: "description", label: "Description" },
     { path: "price", label: "Price" },
     { path: "date", label: "Date" },
-    { path: "user", label: "Name" },
+    { path: "user", label: "User" },
     { path: "type", label: "Type" },
     {
       key: "edit",
@@ -36,8 +36,12 @@ class WalletTable extends Component {
   render() {
     return (
       <div>
-        <h1>Wallet</h1>
-        <Table thead={this.columns} tbody={this.props.data} />
+        <Table
+          thead={this.columns}
+          tbody={this.props.data}
+          onSort={this.props.onSort}
+          sortColumn={this.props.sortColumn}
+        />
       </div>
     );
   }

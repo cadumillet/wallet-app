@@ -1,30 +1,26 @@
 import React from "react";
+import _ from "lodash";
 
-const Pagination = () => {
+const Pagination = ({ itemsCount, pageSize, onPageChange, currentPage }) => {
+  const pagesCount = Math.ceil(itemsCount / pageSize);
+  const pages = _.range(1, pagesCount + 1);
+
   return (
     <div>
-      <nav aria-label="Page navigation example">
+      <nav className="clickable">
         <ul className="pagination">
-          <li className="page-item">
-            <a href="/" className="page-link">
-              Previous
-            </a>
-          </li>
-          <li className="page-item">
-            <a href="/" className="page-link">
-              1
-            </a>
-          </li>
-          <li className="page-item">
-            <a href="/" className="page-link">
-              2
-            </a>
-          </li>
-          <li className="page-item">
-            <a href="/" className="page-link">
-              Next
-            </a>
-          </li>
+          {pages.map((page) => (
+            <li
+              key={page}
+              className={
+                page === currentPage ? "page-item active" : "page-item"
+              }
+            >
+              <a className="page-link" onClick={() => onPageChange(page)}>
+                {page}
+              </a>
+            </li>
+          ))}
         </ul>
       </nav>
     </div>
