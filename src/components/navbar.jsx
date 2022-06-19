@@ -6,20 +6,22 @@ class Navbar extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg bg-light">
-        <div className="container-fluid">
-          <Link to="/" className="navbar-brand">
+        <div className="container">
+          <Link to="/" className="navbar-brand mb-0 h1">
             Wallet
           </Link>
           <div className="collapse navbar-collapse">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <Link className="nav-item nav-link" to="/transactions/new">
+                New Transaction
+              </Link>
+            </ul>
             <ul className="navbar-nav">
-              <Link className="nav-item nav-link" to="/login">
+              <Link className="nav-item nav-link mx-3" to="/login">
                 Login
               </Link>
-              <Link className="nav-item nav-link" to="/signup">
+              <Link className="btn btn-dark" to="/signup">
                 Signup
-              </Link>
-              <Link className="nav-item nav-link" to="/transaction/new">
-                New Transaction
               </Link>
             </ul>
           </div>

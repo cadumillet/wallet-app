@@ -36,7 +36,7 @@ class Wallet extends Component {
   };
 
   handleUserChange = (selectedUser) => {
-    this.setState({ selectedUser });
+    this.setState({ selectedUser, currentPage: 1 });
   };
 
   getPageData = () => {
