@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/navbar";
 import LoginForm from "./screens/loginForm";
@@ -11,11 +11,15 @@ function App() {
     <React.Fragment>
       <Navbar />
       <div style={{ paddingTop: 40 }}>
-        <Routes>
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/transaction/:id" element={<TransacionForm />} />
-          <Route path="/" element={<Wallet />} />
-        </Routes>
+        <Switch>
+          <Route
+            path="/transactions/:id/:description/:price/:date/:user/:type"
+            component={TransacionForm}
+          />
+          <Route path="/transactions/:id" component={TransacionForm} />
+          <Route path="/login" component={LoginForm} />
+          <Route path="/" component={Wallet} />
+        </Switch>
       </div>
     </React.Fragment>
   );

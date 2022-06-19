@@ -4,6 +4,7 @@ import WalletTable from "../components/walletTable";
 import Pagination from "../atoms/pagination";
 import ListCount from "../components/listCount";
 import { getTransactions } from "../services/transactionService";
+import { getUsers } from "../services/userService";
 import { paginate } from "../utils/paginate";
 
 class Wallet extends Component {
@@ -12,12 +13,13 @@ class Wallet extends Component {
     users: [],
     pageSize: 2,
     currentPage: 1,
+    selectedUser: "All",
     sortColumn: { path: "title", order: "asc" },
   };
 
   componentDidMount() {
     const transactions = getTransactions();
-    const users = ["All", "Cadu", "Moyses"];
+    const users = getUsers();
     this.setState({ transactions, users });
   }
 
@@ -54,12 +56,16 @@ class Wallet extends Component {
     const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
 
     const transactions = paginate(sorted, pageSize, currentPage);
-    return { data: transactions, count: filtered.length };
+    return {
+      data: transactions,
+      count: filtered.length,
+      totalCount: allTransactions.length,
+    };
   };
 
   render() {
     const { sortColumn, selectedUser } = this.state;
-    const { data, count } = this.getPageData();
+    const { data, count, totalCount } = this.getPageData();
 
     return (
       <div className="container">
@@ -70,6 +76,7 @@ class Wallet extends Component {
               listItems={this.state.users}
               onItemChange={this.handleUserChange}
               selectedItem={selectedUser}
+              totalCount={totalCount}
             />
           </div>
           <div className="col">

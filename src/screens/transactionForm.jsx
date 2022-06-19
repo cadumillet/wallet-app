@@ -17,6 +17,14 @@ class TransacionForm extends Form {
 
   schema = Joi.object(this.schemaModel);
 
+  componentDidMount() {
+    const { id, description, price, date, user, type } =
+      this.props.match.params;
+    if (id === "new") return;
+    const data = { description, price, date, user, type };
+    this.setState({ data });
+  }
+
   doSubmit() {
     console.log("Submit");
   }

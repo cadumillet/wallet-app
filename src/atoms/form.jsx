@@ -43,6 +43,8 @@ class Form extends Component {
   };
 
   renderInput(name, label, placeholder, type = "text") {
+    const { data } = this.state;
+
     return (
       <Input
         name={name}
@@ -51,6 +53,7 @@ class Form extends Component {
         type={type}
         onChange={this.handleChange}
         error={this.state.errors[name]}
+        value={data[name]}
       />
     );
   }

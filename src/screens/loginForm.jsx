@@ -15,11 +15,6 @@ class LoginForm extends Form {
 
   schema = Joi.object(this.schemaModel);
 
-  componentDidMount() {
-    const transactionId = this.props.params.id;
-    if (transactionId === "new") return;
-  }
-
   doSubmit = () => {
     console.log("Submit");
     // window.location.reload();

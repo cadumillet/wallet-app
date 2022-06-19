@@ -12,10 +12,10 @@ class WalletTable extends Component {
     {
       key: "edit",
       content: (item) => (
-        <Link to={`/transactions/${item._id}`}>
-          <button className="btn btn-light" onClick={() => this.editItem(item)}>
-            Edit
-          </button>
+        <Link
+          to={`/transactions/${item._id}/${item.description}/${item.price}/${item.date}/${item.user}/${item.type}`}
+        >
+          <button className="btn btn-light">Edit</button>
         </Link>
       ),
     },
@@ -32,11 +32,8 @@ class WalletTable extends Component {
     },
   ];
 
-  editItem = (item) => {
-    console.log("Editing...", item);
-  };
-
   render() {
+    if (this.props.data.length === 0) return null;
     return (
       <div>
         <Table
