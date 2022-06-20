@@ -26,6 +26,7 @@ class TransacionForm extends Form {
     const users = getUsers();
     const types = getTypes();
     const { id } = this.props.match.params;
+
     if (id === "new") return this.setState({ users, types });
 
     const data = getTransaction(id);
