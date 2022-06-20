@@ -3,8 +3,8 @@ import _ from "lodash";
 import WalletTable from "../components/walletTable";
 import Pagination from "../atoms/pagination";
 import ListCount from "../components/listCount";
-import { getTransactions } from "../services/transactionService";
-import { getUsers } from "../services/userService";
+import { getTransactions } from "../services/fakeTransactionService";
+import { getUsers } from "../services/fakeUserService";
 import { paginate } from "../utils/paginate";
 
 class Wallet extends Component {

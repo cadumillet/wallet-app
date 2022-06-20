@@ -50,3 +50,7 @@ const transactions = [
 export function getTransactions() {
   return transactions;
 }
+
+export function getTransaction(id) {
+  return transactions.find((i) => i._id === id);
+}

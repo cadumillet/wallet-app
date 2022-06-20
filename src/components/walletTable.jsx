@@ -12,9 +12,7 @@ class WalletTable extends Component {
     {
       key: "edit",
       content: (item) => (
-        <Link
-          to={`/transactions/${item._id}/${item.description}/${item.price}/${item.date}/${item.user}/${item.type}`}
-        >
+        <Link to={`/transactions/${item._id}`}>
           <button className="btn btn-light">Edit</button>
         </Link>
       ),

@@ -13,10 +13,6 @@ function App() {
       <Navbar />
       <div style={{ paddingTop: 40 }}>
         <Switch>
-          <Route
-            path="/transactions/:id/:description/:price/:date/:user/:type"
-            component={TransacionForm}
-          />
           <Route path="/transactions/:id" component={TransacionForm} />
           <Route path="/login" component={LoginForm} />
           <Route path="/signup" component={Signup} />
