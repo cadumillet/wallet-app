@@ -7,7 +7,7 @@
 - TypeScript
 
 ## Directory Structure
-.
+`.
 ├── .gitignore
 ├── package-lock.json
 ├── package.json
@@ -46,4 +46,4 @@
     │   └── fakeUserService.js
     ├── setupTests.js
     └── utils
-        └── paginate.js
+        └── paginate.js`
