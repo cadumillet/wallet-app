@@ -7,9 +7,9 @@
 - TypeScript
 
 ## Directory Structure
-`.
-├── .gitignore
-├── package-lock.json
+    .
+    ├── .gitignore
+    ├── package-lock.json
 ├── package.json
 ├── public
 │   ├── favicon.ico
@@ -46,4 +46,4 @@
     │   └── fakeUserService.js
     ├── setupTests.js
     └── utils
-        └── paginate.js`
+        └── paginate.js
