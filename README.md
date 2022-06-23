@@ -7,9 +7,10 @@
 - TypeScript
 
 ## Directory Structure
-    .
-    ├── .gitignore
-    ├── package-lock.json
+```
+.
+├── .gitignore
+├── package-lock.json
 ├── package.json
 ├── public
 │   ├── favicon.ico
