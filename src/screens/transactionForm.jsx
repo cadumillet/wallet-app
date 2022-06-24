@@ -1,7 +1,7 @@
 import Joi from "joi-browser";
 import Form from "../atoms/form";
 import { getUsers } from "../services/fakeUserService";
-import { getTypes } from "../services/fakeTypeService";
+import { getTypes } from "../services/typeService";
 import { getTransaction } from "../services/fakeTransactionService";
 
 class TransacionForm extends Form {
@@ -22,9 +22,9 @@ class TransacionForm extends Form {
 
   schema = Joi.object(this.schemaModel);
 
-  componentDidMount() {
+  async componentDidMount() {
     const users = getUsers();
-    const types = getTypes();
+    const { data: types } = await getTypes();
     const { id } = this.props.match.params;
 
     if (id === "new") return this.setState({ users, types });

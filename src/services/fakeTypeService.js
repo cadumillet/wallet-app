@@ -5,6 +5,12 @@ const types = [
   { _id: 4, name: "Transporte", items: ["Estacionamento", "Passagem"] },
 ];
 
+// When the description is new
+export function addType() {}
+
+// When already existis a type with the description
+export function updateType() {}
+
 export function getTypes() {
   return types;
 }
