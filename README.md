@@ -4,6 +4,6 @@
 
 ## Tasks
 - [ ] fix typeService structure
-- [ ] connect to server
+- [x] connect to server
 - [ ] create admin user
 - [ ] apply auth
