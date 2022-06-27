@@ -4,8 +4,8 @@ import WalletTable from "../components/walletTable";
 import Pagination from "../atoms/pagination";
 import ListCount from "../components/listCount";
 import { getTransactions } from "../services/fakeTransactionService";
-import { getUsers } from "../services/fakeUserService";
-import { paginate } from "../utils/paginate";
+import { getUsers } from "../services/userService";
+import { paginate } from "../lib/paginate";
 
 class Wallet extends Component {
   state = {
@@ -17,9 +17,9 @@ class Wallet extends Component {
     sortColumn: { path: "title", order: "asc" },
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     const transactions = getTransactions();
-    const users = getUsers();
+    const { data: users } = await getUsers();
     this.setState({ transactions, users });
   }
 

@@ -1,6 +1,6 @@
 import Joi from "joi-browser";
 import Form from "../atoms/form";
-import { getUsers } from "../services/fakeUserService";
+import { getUsers } from "../services/userService";
 import { getTypes } from "../services/typeService";
 import { getTransaction } from "../services/fakeTransactionService";
 
@@ -23,7 +23,7 @@ class TransacionForm extends Form {
   schema = Joi.object(this.schemaModel);
 
   async componentDidMount() {
-    const users = getUsers();
+    const { data: users } = await getUsers();
     const { data: types } = await getTypes();
     const { id } = this.props.match.params;
 
@@ -33,8 +33,34 @@ class TransacionForm extends Form {
     this.setState({ data, users, types });
   }
 
+  verifyTransaction() {
+    const { data, types } = this.state;
+
+    const description = data.description.toLowerCase();
+
+    const result = types.filter(
+      (t) =>
+        t.items.findIndex((i) => {
+          return i.toLowerCase() === description;
+        }) > -1
+    );
+
+    return result.length > 0 ? result : null;
+  }
+
   doSubmit() {
-    console.log("Submit");
+    // analise transaction
+    const type = this.verifyTransaction();
+
+    // save transaction
+    if (type) {
+      console.log("Save transaction");
+      return console.log(type);
+    }
+
+    // add type?
+    // ask for insert new type or select an existent one
+    console.log("Save transaction and add new type");
   }
 
   render() {
